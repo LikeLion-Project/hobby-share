@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
+  post '/home/send_message'
+  root 'home#index'
+
+  get '/test/navigation'
+  get '/home/my_page'
+  get '/home/index'
+  get '/appeal' => 'home#appeal'
+  get '/home/appeal'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

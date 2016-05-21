@@ -1,0 +1,91 @@
+<div class="container container-top-bottom-margin">
+  <!-- Split button -->
+  <!-- <div class="category_box">
+    <div class="btn-group float_right">
+    <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+      카테고리 <span class="caret"></span>
+    </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </div> -->
+  <div class="masonry row">
+    <% @users.each do |user| %>
+    <div class="col-md-3 col-sm-4 col-xs-6 masonry-item">
+      <%if user.gender == "male"%>
+        <div class="card male_color">
+      <%else%>
+        <div class="card female_color">
+      <%end%>
+        <a href="#" data-toggle="modal" data-target="#exampleModal" data-user_id="<%=current_user.id %>" data-target_user_id="<%=user.id %>">
+          <div class="card-image">
+             <%= image_tag(user.pic+'.jpg', class: "random_image") %>
+          </div>
+          <div class="card-description">
+            <div class="card-major">
+              <%= user.major %>
+            </div>
+
+            <div class="card-category">
+              <%= user.category %>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="z-index : 1050">
+    <form action="/home/send_message" enctype="multipart/form-data" method="POST">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title" id="exampleModalLabel">보내고 싶은 메시지를 작성해주세요.!</h2>
+        </div>
+        <div class="modal-body">
+            <input id="modal_user_id" type="hidden" name="user_id">
+            <input id="modal_target_user_id" type="hidden" name="target_user_id">
+            <div class="form-group">
+              <label for="modal_title" class="control-label">제목</label>
+              <input type="text" class="form-control" id="modal_title" name="title">
+            </div>
+            <div class="form-group">
+              <label for="modal_content" class="control-label">내용</label>
+              <textarea class="form-control" id="modal_content" name="content"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+$(function(){
+        //masonry 추가
+        var $grid = $('.masonry').masonry({
+            itemSelector: '.masonry-item',
+        });
+});
+
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var user_id = button.data('user_id') // Extract info from data-* attributes
+  var target_user_id = button.data('target_user_id')
+  $('#modal_user_id').val(user_id)
+  $('#modal_target_user_id').val(target_user_id)
+  // $('#modal_title').val(user_id)
+  // $('#modal_content').val(target_user_id)
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+})
+</script>

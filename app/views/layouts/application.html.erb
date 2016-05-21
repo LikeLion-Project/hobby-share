@@ -2,13 +2,31 @@
 <html>
 <head>
   <title>WebGame</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header class="cd-header">
+  <div class="cd-logo">
+    <a href="/home/index"><img src="/assets/cd-logo.svg" alt="Logo"></a></div>
+  <nav>
+    <ul class="cd-secondary-nav">
+      <% if user_signed_in?%>
+         <li><a href="/home/my_page">마이 페이지</a></li>
+         <li><a href="/home/appeal">구애하기</a></li>
+         <li><a href="#"><%= current_user.email%></a></li>
+         <li><a href="/users/sign_out">로그아웃</a></li>
+      <% else %>
+       <li><a href="/users/sign_in">로그인</a></li>
+       <li><a href="/users/sign_up">회원가입</a></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
 <%= yield %>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
