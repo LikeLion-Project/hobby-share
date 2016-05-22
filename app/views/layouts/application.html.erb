@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WebGame</title>
+  <title>Hobby Share</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -11,12 +11,12 @@
 <body>
 <header class="cd-header">
   <div class="cd-logo">
-    <a href="/home/index"><img src="/assets/cd-logo.svg" alt="Logo"></a></div>
+    <a href="/home/index"><img width="40%" height="40%" src="/assets/likelionkookmin_logo.png" alt="Logo"></a></div>
   <nav>
     <ul class="cd-secondary-nav">
       <% if user_signed_in?%>
          <li><a href="/home/my_page">마이 페이지</a></li>
-         <li><a href="/home/appeal">구애하기</a></li>
+         <li><a href="/home/appeal">둘러보기</a></li>
          <li><a href="#"><%= current_user.email%></a></li>
          <li><a href="/users/sign_out">로그아웃</a></li>
       <% else %>
@@ -27,6 +27,12 @@
   </nav>
 </header>
 <%= yield %>
+<!--<div class="footer">-->
+<!--  <img width="60%" height="60%" src="/assets/likelionkookmin_logo.png">-->
+<!--</div>-->
+<script>
+      new WOW().init();
+  </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>

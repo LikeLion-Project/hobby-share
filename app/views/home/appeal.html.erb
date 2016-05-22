@@ -13,9 +13,11 @@
       </ul>
     </div>
   </div> -->
+  <div><center><h4 class="alert_message">아직 에러를 다 못잡았습니다...ㅜㅜ 
+  <br>상대방에게 메시지를 전송하려면 새로고침 해주세요!!</h4></center></div>
   <div class="masonry row">
     <% @users.each do |user| %>
-    <div class="col-md-3 col-sm-4 col-xs-6 masonry-item">
+    <div class="col-md-3 col-sm-4 col-xs-6 masonry-item wow tada">
       <%if user.gender == "male"%>
         <div class="card male_color">
       <%else%>
@@ -39,6 +41,7 @@
     </div>
     <% end %>
   </div>
+</div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

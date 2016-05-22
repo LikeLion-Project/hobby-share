@@ -88,7 +88,8 @@ html, body {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
     top: -80px;
-    background-color: #A79C8E;
+    /*background-color: #A79C8E;*/
+    background-color: rgba(0,0,0, 0.7);
     /*background-color: rgba(2, 23, 37, 0.96);*/
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
