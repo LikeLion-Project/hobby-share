@@ -1,21 +1,23 @@
 <div class="container container-top-bottom-margin">
-<h2 color="white" align="center" style = "font-size:20px; font-weight-bold; padding:15px;">회원가입</h2>
+<h2 class="sign_in_up_attr" align="center" style = "font-size:40px; padding:15px;">회원가입</h2>
 
 <form action="/users" method="post" enctype="multipart/form-data">
 
     <div class="form_group">
-      <label for="user_email">이메일</label>
+      <label for="user_email" class="sign_in_up_attr">이메일</label>
       <input class="form-control" autofocus="autofocus" type="email" name="user[email]" id="user_email" placeholder="sample@kookmin.ac.kr" required>
     </div></br>
       <div class="form_group">
-      <label for="user_password">비밀번호</label><br>
+      <label for="user_password" class="sign_in_up_attr">
+        비밀번호 
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %>자 이상)</em>
-        <% end %><br>
+          <em>(<%= @minimum_password_length %>자 이상)</em>
+        <% end %>
+      </label><br>        
       <input class="form-control" autocomplete="off" type="password" name="user[password]" id="user_password" placeholder="******" required>
     </div></br>
     <div class="form_group">
-      <label for="user_password_confirmation">비밀번호 확인</label><br>
+      <label for="user_password_confirmation" class="sign_in_up_attr">비밀번호 확인</label><br>
       <input class="form-control" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="******" required>
     </div></br>
 
@@ -25,7 +27,7 @@
     </div>
 
     <div class="form_group">
-      <label for="user_category">카테고리</label><br>
+      <label for="user_category" class="sign_in_up_attr">카테고리</label><br>
       <select class="form-control" name="user[category]" id="user_category" required>
         <option value="영화">영화</option>
         <option value="드라마">드라마</option>
@@ -44,7 +46,7 @@
     </div></br>
 
     <div class="form_group">
-      <label for="user_major">단과대학</label><br>
+      <label for="user_major" class="sign_in_up_attr">단과대학</label><br>
       <select class="form-control" name="user[major]" id="user_major" required>
         <option value="문과대학">문과대학</option>
         <option value="사회과학대학">사회과학대학</option>
@@ -63,7 +65,7 @@
     </div></br>
 
     <div class="form_group">
-      <label for="user_gender">성별</label><br>
+      <label for="user_gender" class="sign_in_up_attr">성별</label><br>
       <select class="form-control" name="user[gender]" id="user_gender" required>
         <option value="male">남자</option>
         <option value="female">여자</option>
