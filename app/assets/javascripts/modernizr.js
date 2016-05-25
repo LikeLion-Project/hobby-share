@@ -967,35 +967,35 @@ window.Modernizr = (function( window, document, undefined ) {
      * @param test - Function returning true if feature is supported, false if not
      */
      Modernizr.addTest = function ( feature, test ) {
-       if ( typeof feature == 'object' ) {
+      if ( typeof feature == 'object' ) {
          for ( var key in feature ) {
-           if ( hasOwnProp( feature, key ) ) {
+          if ( hasOwnProp( feature, key ) ) {
              Modernizr.addTest( key, feature[ key ] );
-           }
+          }
          }
-       } else {
+      } else {
 
          feature = feature.toLowerCase();
 
          if ( Modernizr[feature] !== undefined ) {
-           // we're going to quit if you're trying to overwrite an existing test
-           // if we were to allow it, we'd do this:
-           //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
-           //   docElement.className = docElement.className.replace( re, '' );
-           // but, no rly, stuff 'em.
-           return Modernizr;
+          // we're going to quit if you're trying to overwrite an existing test
+          // if we were to allow it, we'd do this:
+          //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
+          //   docElement.className = docElement.className.replace( re, '' );
+          // but, no rly, stuff 'em.
+          return Modernizr;
          }
 
          test = typeof test == 'function' ? test() : test;
 
          if (typeof enableClasses !== "undefined" && enableClasses) {
-           docElement.className += ' ' + (test ? '' : 'no-') + feature;
+          docElement.className += ' ' + (test ? '' : 'no-') + feature;
          }
          Modernizr[feature] = test;
 
-       }
+      }
 
-       return Modernizr; // allow chaining.
+      return Modernizr; // allow chaining.
      };
 
 
@@ -1246,44 +1246,44 @@ window.Modernizr = (function( window, document, undefined ) {
         var html5 = {
 
           /**
-           * An array or space separated string of node names of the elements to shiv.
-           * @memberOf html5
-           * @type Array|String
-           */
+          * An array or space separated string of node names of the elements to shiv.
+          * @memberOf html5
+          * @type Array|String
+          */
           'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video',
 
           /**
-           * current version of html5shiv
-           */
+          * current version of html5shiv
+          */
           'version': version,
 
           /**
-           * A flag to indicate that the HTML5 style sheet should be inserted.
-           * @memberOf html5
-           * @type Boolean
-           */
+          * A flag to indicate that the HTML5 style sheet should be inserted.
+          * @memberOf html5
+          * @type Boolean
+          */
           'shivCSS': (options.shivCSS !== false),
 
           /**
-           * Is equal to true if a browser supports creating unknown/HTML5 elements
-           * @memberOf html5
-           * @type boolean
-           */
+          * Is equal to true if a browser supports creating unknown/HTML5 elements
+          * @memberOf html5
+          * @type boolean
+          */
           'supportsUnknownElements': supportsUnknownElements,
 
           /**
-           * A flag to indicate that the document's `createElement` and `createDocumentFragment`
-           * methods should be overwritten.
-           * @memberOf html5
-           * @type Boolean
-           */
+          * A flag to indicate that the document's `createElement` and `createDocumentFragment`
+          * methods should be overwritten.
+          * @memberOf html5
+          * @type Boolean
+          */
           'shivMethods': (options.shivMethods !== false),
 
           /**
-           * A string to describe the type of `html5` object ("default" or "default print").
-           * @memberOf html5
-           * @type String
-           */
+          * A string to describe the type of `html5` object ("default" or "default print").
+          * @memberOf html5
+          * @type String
+          */
           'type': 'default',
 
           // shivs the document according to the specified `html5` object options

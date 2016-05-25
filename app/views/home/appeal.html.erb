@@ -25,7 +25,6 @@
           <div class="card female_color">
         <%end%>
           <a href="#" data-toggle="modal" data-target="#exampleModal" data-user_id="<%=current_user.id %>" data-target_user_id="<%=user.id %>">
-          <!--<a class="inline" href="#inline">-->
             <div class="card-image">
                <%= image_tag(user.pic+'.jpg', class: "random_image") %>
             </div>
@@ -44,8 +43,8 @@
   </div>
 </div>
 
-<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="z-index : 1050">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <form action="/home/send_message" enctype="multipart/form-data" method="POST">
       <div class="modal-content">
         <div class="modal-header">
@@ -81,15 +80,16 @@ $(function(){
 });
 </script>
 <script>
-// $('#exampleModal').on('show.bs.modal', function (event) {
-//   var button = $(event.relatedTarget) // Button that triggered the modal
-//   var user_id = button.data('user_id') // Extract info from data-* attributes
-//   var target_user_id = button.data('target_user_id')
-//   $('#modal_user_id').val(user_id)
-//   $('#modal_target_user_id').val(target_user_id)
-//   // $('#modal_title').val(user_id)
-//   // $('#modal_content').val(target_user_id)
-//   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-//   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-// })
+console.log("sfdafa");
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var user_id = button.data('user_id') // Extract info from data-* attributes
+  var target_user_id = button.data('target_user_id')
+  $('#modal_user_id').val(user_id)
+  $('#modal_target_user_id').val(target_user_id)
+  // $('#modal_title').val(user_id)
+  // $('#modal_content').val(target_user_id)
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+})
 </script>
