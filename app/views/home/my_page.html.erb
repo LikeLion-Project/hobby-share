@@ -26,23 +26,22 @@
       <div class="row">
         <% @posts.each do |post| %>
         <div class="message_box">
-          <div class="col-md-4">
-            <% u = User.where(id: post.sender).take %>
-            <%if u.gender == "male"%>
+          <div class="col-md-4">            
+            <%if post.user.gender == "male"%>
               <div class="card male_color">
             <%else%>
               <div class="card female_color">
             <%end%>
                 <div class="card-image">
-                  <%= image_tag(u.pic+'.jpg', class: "random_image") %>
+                  <%= image_tag(post.user.pic+'.jpg', class: "random_image") %>
                 </div>
                 <div class="card-description">
                   <div class="card-major">
-                    <%= u.major %>
+                    <%= post.user.major %>
                   </div>
 
                   <div class="card-category">
-                    # <%= u.category %>
+                    # <%= post.user.category %>
                   </div>
                 </div>
               </div>

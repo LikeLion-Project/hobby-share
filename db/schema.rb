@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 20160521080813) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "sender"
-    t.string   "title"
-    t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "receiver_id"
+    t.string   "title",       default: ""
+    t.string   "content",     default: ""
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
