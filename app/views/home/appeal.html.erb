@@ -13,12 +13,6 @@
   <!--  </div>-->
   <!--</div>-->
   <!--<div><center><h4 class="alert_message">-->
-  <!--  아직 에러를 다 못잡았습니다...ㅜㅜ -->
-  <!--  <br>상대방에게 메시지를 전송하려면 새로고침을 해주세요!!!</h4></center>-->
-  <!--</div>-->
-  <!--<input type="text" class="form-control" id="test_title" name="test_title" required>-->
-  <!--<input id="test_id" type="hidden" name="test_id" value="4">-->
-  <a href="#" type="button" id="test_button" class="btn btn-primary">Send message</a>
   <div class="masonry row">
     <% @users.each do |user| %>
       <div class="col-md-3 col-sm-4 col-xs-6 masonry-item wow tada">
@@ -49,7 +43,6 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
       <div class="modal-content">
-        <form action="/send_message" method="post">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h2 class="modal-title" id="exampleModalLabel">보내고 싶은 메시지를 작성해주세요.!</h2>
@@ -67,9 +60,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" id="send_message_button" class="btn btn-primary">Send message</a>
+          <button id="send_message_button" class="btn btn-primary">Send message</a>
         </div>
-        <!--</form>-->
       </div>
   </div>
 </div>
@@ -91,59 +83,24 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 });
-
-// $("#send_message_button").click(function(){
-  
-//   Push.create('메시지 전송 성공!', {
-//                       body: '메시지가 전송 되었습니다.',
-//                       // icon :  'images/m_logo_keen.jpg',
-//                       timeout : 2000
-//                     });   
-  
-//   });
-
-// $('#test_button').click(
-//   function(){         
-//     console.log("dsadeee");
-//     $.ajax({
-//         type: "POST",
-//         data: { receiver_id: $("#test_title").val(),
-//                 post_title: $("#test_id").val(),
-//                 post_content: "dasfasdfasdfadfdasdfasdfaF"},
-//         url: "/sendmessage",
-//         success: function(data){
-//                 // console.log("ㅗㅗ");
-//                 // Push.create('메시지 전송 성공!', {
-//                 //   body: data.receiver_id + '에게 메시지가 전송 되었습니다.',
-//                 //   // icon :  'images/m_logo_keen.jpg',
-//                 //   timeout : 2000
-//                 // });   
-//                 // $('#exampleModal').close();
-//         }
-        
-//     });
-//   });
     
-    
-// $("#send_message_button").click(function(){
-//         console.log("asdfasdf");
-//         $.ajax({
-//             method: "POST",
-//             url: "/send_message",
-//             data: { receiver_id: $("#receiver_id").val(),
-//                     post_title: $("#modal_title").val(),
-//                     post_content: $("#modal_content").html()},                
-//             success: function(data){
-//                     console.log("ㅗㅗ");
-//                     Push.create('메시지 전송 성공!', {
-//                       body: data.receiver_id + '에게 메시지가 전송 되었습니다.',
-//                       // icon :  'images/m_logo_keen.jpg',
-//                       timeout : 2000
-//                     });   
-//                     $('#exampleModal').close();
-//             }
-            
-//         });
-// });
+$("#send_message_button").click(function(){
+        console.log("asdfasdf");
+        $.ajax({
+            method: "POST",
+            url: "/send_message",
+            data: { receiver_id: $("#modal_receiver_id").val(),
+                    post_title: $("#modal_title").val(),
+                    post_content: $("#modal_content").val()},                
+            success: function(data){
+                    Push.create('메시지 전송 성공!', {
+                      body: data.receiver_email + '에게 메시지가 전송 되었습니다.',
+                      // icon :  'images/m_logo_keen.jpg',
+                      timeout : 3000
+                    });  
+                    $('#exampleModal').modal("hide");
+            }            
+        });
+});
 
 </script>
