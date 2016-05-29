@@ -26,6 +26,6 @@ class HomeController < ApplicationController
     #                   title: params[:title],
     #                   content: params[:content])
                       
-    # redirect_to "/appeal"    
+    # redirect_to "/appeal", :flash => { :success => "메시지가 전송되었습니다." }
   end
 end
