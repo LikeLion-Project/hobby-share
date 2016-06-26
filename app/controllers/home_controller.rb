@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
   
   def detail_page
-    @user = User.find(id: params[:id])
+    @user = User.find(params[:id])
   end
 
   def send_message                

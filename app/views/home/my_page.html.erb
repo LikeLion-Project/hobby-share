@@ -7,9 +7,7 @@
         <%else%>
           <div class="my_card female_color">
         <%end%>
-            <div class="card-image">
-              <%= image_tag(@user.pic+'.jpg', class: "random_image") %>
-            </div>
+            <%= image_tag(@user.pic+'.jpg', class: "card-image") %>
             <div class="card-content">
               <div class="card-user">
                 <div class="card-name">
@@ -43,9 +41,7 @@
             <%else%>
               <div class="card female_color">
             <%end%>
-                <div class="card-image">
-                  <%= image_tag(post.user.pic+'.jpg', class: "random_image") %>
-                </div>
+                <%= image_tag(post.user.pic+'.jpg', class: "card-image") %>
                 <div class="card-content">
                   <div class="card-user">
                     <div class="card-name">

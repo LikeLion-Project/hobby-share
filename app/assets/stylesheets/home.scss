@@ -31,9 +31,7 @@ body{
     text-decoration: none;
   }
   a:hover{
-    color:rgba(66,66,66,1);
-    
-
+    color:rgba(66,66,66,1);   
   }
   a:focus{
     outline: none;
@@ -54,7 +52,6 @@ body{
   height : 60%;
   // background-color: grey;
   border-radius: 5px;
-  border: 1px solid grey;
 }
 
 .card-content{
@@ -114,7 +111,7 @@ body{
     word-wrap:break-word; 
     line-height: 1.2em;
     height: 2.4em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
-    margin-top:12px;
+    margin-top:10px;
   }
 }
 
@@ -153,17 +150,11 @@ body{
 }
 
 .male_color{
-
     background-color: rgba(  22,147,167, 0.7);
-  // background-color: rgba(128,188,163, 0.7); 
-  // #80BCA3;
 }
 
 .female_color{
       background-color: rgba(232,74,95, 0.7);
-  
-    // background-color: rgba(255,132,124, 0.7);
-  // background-color: #FF847C;
 }
 
 .my_card{
@@ -252,4 +243,68 @@ body{
   resize: none;
   min-height: 150px;
   
+}
+
+//===== detail_page =====//
+.detail-container{
+  color:white;
+  font-size: 1.3em;  
+  margin: 20px;
+  width : 100%;
+  min-height : 500px;
+  border-radius : 10px;
+  padding : 10px;
+  box-shadow: 2px 2px 10px rgba(0,0,0, 0.8);  
+  
+  .detail-user-image{
+    display: inline-block;
+    width: 80%;    
+    margin: 30px 0px;
+    border-radius: 30px;
+  }
+  
+  .detail-name{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .detail-major{
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+  .detail-category{
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .detail-introduce{
+    margin: 30px 20px;
+    font-size: 20px;
+    font-style: italic;
+  }
+}
+
+.comment-container{
+  color:black;
+  font-size: 1.3em;  
+  margin: 20px;
+  width : 100%;
+  border-radius : 10px;
+  padding : 10px;
+  box-shadow: 2px 2px 10px rgba(0,0,0, 0.8);  
+  .comment-user{
+    font-weight: bold;
+    font-size:24px;
+    float:left;
+  }
+  .comment-date{
+    font-size:14px;
+    float:right;
+  }
+  .comment-content{
+    padding: 5px 10px;
+    font-style:italic;
+    font-size:18px;
+    clear:both;
+  }
 }

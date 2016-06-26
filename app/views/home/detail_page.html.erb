@@ -1,10 +1,51 @@
 <div class="container container-top-bottom-margin">
-  <div class="title_box">
-    <h2 class="web_title">
-      <span class="big_font">H</span>obby Share
-    </h2>
-    <h4 class="web_sub_title">
-      in Kookmin Univ.
-    </h4>
-  </div>
+  <%if @user.gender == "male"%>
+  <div class="detail-container male_color">
+  <%else%>
+  <div class="detail-container female_color">
+  <%end%>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <center><%= image_tag(@user.pic+'.jpg', class: "detail-user-image") %>
+          <div class="detail-name"><%=@user.name%></div>
+          <div class="detail-major"><%=@user.major%></div>           
+          <div class="detail-category">
+            <% @user.category.split(',').each do |category| %>
+            <span>#<%= category %>  </span>
+            <% end %>
+          </div>
+        </center>
+        
+      </div>
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <div class="detail-introduce"><%=@user.introduce.gsub(/\r\n/, '<br/>').html_safe%></div>
+      </div>
+    </div>    
+  </div><!-- container -->
+  <%if @user.gender == "male"%>
+  <div class="comment-container male_color">
+  <%else%>
+  <div class="comment-container female_color">
+  <%end%>
+    <ul>
+      <li class="list-group-item">
+        <div class="input-group">
+          <input type="text" class="form-control reply-content" placeholder="댓글을 작성해주세요">
+          <span class="input-group-btn">
+            <button id="reply-button" class="btn btn-default" type="button">작성</button>
+          </span>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="comment-user">user</div>
+        <div class="comment-date">date%></div>
+        <div class="comment-content">
+          <span>"</span>
+          content
+          <span>"</span>
+        </div>
+      </li>
+    </ul>
+  
+  </div><!-- container -->
 </div>
