@@ -29,15 +29,17 @@
                <%= image_tag(user.pic+'.jpg', class: "random_image") %>
             </div>
             <div class="card-content">
-              <div class="card-name">
-                <%= user.name %>
+              <div class="card-user">
+                <div class="card-name">
+                  <%= user.name %>
+                </div>
+                <div class="card-major">
+                  <%= user.major %>
+                </div>
               </div>
-              <div class="card-major">
-                <%= user.major %>
-              </div>              
               <div class="card-introduce">
                 <span class="quotes">"</span>
-                <%= user.introduce %>
+                <%= user.introduce.gsub(/\r\n/, '<br/>').html_safe %>
                 <span class="quotes">"</span>
               </div>
               <div class="card-category">

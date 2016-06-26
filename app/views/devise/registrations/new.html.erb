@@ -12,11 +12,11 @@
       <%= f.text_field :name, class: "form-control", placeholder: '닉네임을 입력해주세요.', autocomplete: "off", required: true %>
     </div></br> 
     <div class="form_group">
-      <%= f.label :password, "비밀번호 (8자이상)*", class: "sign_in_up_attr" %>
+      <%= f.label :password, "비밀번호 (8자이상)", class: "sign_in_up_attr" %>
       <%= f.password_field :password, class: "form-control", placeholder: '********', autocomplete: "off", required: true %>
     </div></br>
     <div class="form_group">
-      <%= f.label :password_confirmation, "비밀번호 확인*", class: "sign_in_up_attr"%>
+      <%= f.label :password_confirmation, "비밀번호 확인", class: "sign_in_up_attr"%>
       <%= f.password_field :password_confirmation,  class: "form-control", placeholder: '********', autocomplete: "off", required: true %>
     </div></br>  
     <div class="form_group">
@@ -26,7 +26,7 @@
     </div>
   
     <div class="form_group">
-      <%= f.label :category, "관심 카테고리(중복 가능)", class: "sign_in_up_attr"%><br>
+      <%= f.label :category, "관심 카테고리 (최대 5개 선택 가능)", class: "sign_in_up_attr"%><br>
       <%= f.hidden_field :category %>    
       <div id="category-container" class="row">
         <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="영화">영화</label></div>
@@ -45,14 +45,14 @@
       </div>
     </div></br>
     <div class="form_group">
-      <%= f.label :major, "단과대학*", class: "sign_in_up_attr"%>
+      <%= f.label :major, "단과대학", class: "sign_in_up_attr"%>
       <%= f.select(:major, [ "문과대학", "사회과학대학", "법과대학", "경상대학", "조형대학",
                               "삼림과학대학", "자연과학대학", "예술대학", "체육대학", "경영대학",
                               "전자정보통신대학", "건축대학", "자동차융합대학"], {}, { :class => 'form-control' }) %>
     </div></br>
     
     <div class="form_group">
-      <%= f.label :gender, "성별*", class: "sign_in_up_attr"%><br>
+      <%= f.label :gender, "성별", class: "sign_in_up_attr"%><br>
       <%= f.hidden_field :gender, value:"male" %>   
       <div id="gender-container">
         <label class="radio-inline sign_in_up_attr"><input type="radio" name="gender" value="male" checked="checked">남자</label>
@@ -75,6 +75,10 @@
 $(function(){
   // 카테고리 체크 제어
   $("#category-container input").click(function(){
+    if($("#category-container input:checked").length > 5){
+      alert("최대 5개까지 선택 가능합니다.");
+      $(this).attr('checked', false);
+    };
     if($(this).is(':checked')){
       var $category = $(this).val(); // 선택된 카테고리
       $("#user_category").val(function(i, oldVal){
@@ -83,7 +87,7 @@ $(function(){
           categoryArr.push($category)
           return categoryArr
         }else{
-          var categoryArr = oldVal.split(',');
+          var categoryArr = oldVal.split(',');        
           categoryArr.push($category)
           return categoryArr
         }

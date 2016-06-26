@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'appeal' => 'home#appeal'
   get 'home/appeal'
+  get 'home/detail_page/:id' => 'home#detail_page'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

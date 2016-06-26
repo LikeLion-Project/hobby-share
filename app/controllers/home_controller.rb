@@ -11,6 +11,10 @@ class HomeController < ApplicationController
     @user = current_user
     @posts = Post.where(receiver_id: current_user.id).order("id DESC")
   end
+  
+  def detail_page
+    @user = User.find(id: params[:id])
+  end
 
   def send_message                
     post = Post.create(user_id: current_user.id,

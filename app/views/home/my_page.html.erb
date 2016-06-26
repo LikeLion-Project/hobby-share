@@ -11,15 +11,17 @@
               <%= image_tag(@user.pic+'.jpg', class: "random_image") %>
             </div>
             <div class="card-content">
-              <div class="card-name">
-                <%= @user.name %>
-              </div>
-              <div class="card-major">
-                <%= @user.major %>
+              <div class="card-user">
+                <div class="card-name">
+                  <%= @user.name %>
+                </div>
+                <div class="card-major">
+                  <%= @user.major %>
+                </div>
               </div>
               <div class="card-introduce">
                 <span class="quotes">"</span>
-                <%= @user.introduce %>
+                <%= @user.introduce.gsub(/\r\n/, '<br/>').html_safe %>
                 <span class="quotes">"</span>
               </div>
               <div class="card-category">
@@ -45,15 +47,17 @@
                   <%= image_tag(post.user.pic+'.jpg', class: "random_image") %>
                 </div>
                 <div class="card-content">
-                  <div class="card-name">
-                    <%= post.user.name %>
-                  </div>
-                  <div class="card-major">
-                    <%= post.user.major %>
+                  <div class="card-user">
+                    <div class="card-name">
+                      <%= post.user.name %>
+                    </div>
+                    <div class="card-major">
+                      <%= post.user.major %>
+                    </div>
                   </div>
                   <div class="card-introduce">
                     <span class="quotes">"</span>
-                    <%= post.user.introduce %>
+                    <%= post.user.introduce.gsub(/\r\n/, '<br/>').html_safe %>
                     <span class="quotes">"</span>
                   </div>
                   <div class="card-category">
