@@ -64,15 +64,29 @@ body{
   // background-color: green;
   
   .card-name{
+    float: left;
     font-weight: bold;
     font-size:18px;
     padding-top: 5px;
     padding-left: 5px;
   }
   .card-major{
+    float: right;
     font-size:14px;
-    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
     // background-color: blue;
+  }
+  .card-introduce{
+    font-style: italic;
+    position:relative;
+    clear: both;
+    font-size:14px;
+    text-align: center;
+    padding: 10px;
+    .front-quotes{
+      font-size: 20px;
+    }
   }
   .card-category{
     position: absolute;
@@ -80,11 +94,8 @@ body{
     font-weight: bold;
     font-size: 14px;
     text-align:center;
-    padding: 5px;
     width:100%;
-    // background-color: red;
   }
-
 }
 
 .message_box{
@@ -214,5 +225,11 @@ body{
   position: fixed;
   right: 30px;
   bottom: 20px;
+  
+}
+
+.textarea-style{
+  resize: none;
+  min-height: 150px;
   
 }

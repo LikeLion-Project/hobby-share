@@ -10,13 +10,22 @@
             <div class="card-image">
               <%= image_tag(@user.pic+'.jpg', class: "random_image") %>
             </div>
-            <div class="card-description">
+            <div class="card-content">
+              <div class="card-name">
+                <%= @user.name %>
+              </div>
               <div class="card-major">
                 <%= @user.major %>
               </div>
-
+              <div class="card-introduce">
+                <span class="quotes">"</span>
+                <%= @user.introduce %>
+                <span class="quotes">"</span>
+              </div>
               <div class="card-category">
-                # <%= @user.category %>
+                <% @user.category.split(',').each do |category| %>
+                <span>#<%= category %>  </span>
+                <% end %>
               </div>
             </div>
          </div>
@@ -36,12 +45,21 @@
                   <%= image_tag(post.user.pic+'.jpg', class: "random_image") %>
                 </div>
                 <div class="card-content">
+                  <div class="card-name">
+                    <%= post.user.name %>
+                  </div>
                   <div class="card-major">
                     <%= post.user.major %>
                   </div>
-
+                  <div class="card-introduce">
+                    <span class="quotes">"</span>
+                    <%= post.user.introduce %>
+                    <span class="quotes">"</span>
+                  </div>
                   <div class="card-category">
-                    # <%= post.user.category %>
+                    <% post.user.category.split(',').each do |category| %>
+                    <span>#<%= category %>  </span>
+                    <% end %>
                   </div>
                 </div>
               </div>

@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160521080813) do
     t.string   "category"
     t.string   "major"
     t.string   "pic"
+    t.text     "introduce"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

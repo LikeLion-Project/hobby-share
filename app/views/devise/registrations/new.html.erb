@@ -59,6 +59,10 @@
         <label class="radio-inline sign_in_up_attr"><input type="radio" name="gender" value="female">여자</label>
       </div>
     </div></br>
+    <div class="form_group">
+      <%= f.label :introduce, "소개", class: "sign_in_up_attr" %>
+      <%= f.text_area :introduce, class: "form-control textarea-style", col:100, row: 10, placeholder: '자신을 소개해주세요.', autocomplete: "off", required: true %>
+    </div></br> 
       <div class="actions">
         <input class="btn btn-default" type="submit" name="commit" value="회원가입">
       </div>
