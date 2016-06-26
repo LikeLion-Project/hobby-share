@@ -28,12 +28,17 @@
             <div class="card-image">
                <%= image_tag(user.pic+'.jpg', class: "random_image") %>
             </div>
-            <div class="card-description">
+            <div class="card-content">
+              <div class="card-name">
+                <%= user.name %>
+              </div>
               <div class="card-major">
                 <%= user.major %>
               </div>
               <div class="card-category">
-                # <%= user.category %>
+                <% user.category.split(',').each do |category| %>
+                <span>#<%= category %>  </span>
+                <% end %>
               </div>
             </div>
           </a>

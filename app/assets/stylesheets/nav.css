@@ -150,7 +150,6 @@ html, body {
 .cd-secondary-nav a {
   display: inline-block;
   color: white;
-  text-transform: uppercase;
   font-weight: 700;
 }
 @media only screen and (min-width: 768px) {
