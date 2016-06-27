@@ -70,6 +70,10 @@ body{
       float: left;
       font-weight: bold;
       font-size:18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* 라인수 */
+      -webkit-box-orient: vertical;
+      word-wrap:break-word;
     }
     .card-major{
       width:40%;
@@ -78,7 +82,10 @@ body{
       text-align: right;
       float: right;
       font-size:14px;
-      // background-color: blue;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* 라인수 */
+      -webkit-box-orient: vertical;
+      word-wrap:break-word;
     }
   }
   .card-introduce{
@@ -109,8 +116,8 @@ body{
     -webkit-line-clamp: 2; /* 라인수 */
     -webkit-box-orient: vertical;
     word-wrap:break-word; 
-    line-height: 1.2em;
-    height: 2.4em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+    // line-height: 1.2em;
+    // height: 2.4em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
     margin-top:10px;
   }
 }
@@ -150,11 +157,13 @@ body{
 }
 
 .male_color{
-    background-color: rgba(  22,147,167, 0.7);
+    // background-color: rgba(  22,147,167, 0.7);
+    background-color :#00A0B0;
 }
 
 .female_color{
-      background-color: rgba(232,74,95, 0.7);
+      // background-color: rgba(232,74,95, 0.7);
+      background-color :#CC333F;
 }
 
 .my_card{
@@ -247,6 +256,7 @@ body{
 
 //===== detail_page =====//
 .detail-container{
+  position: relative;
   color:white;
   font-size: 1.3em;  
   margin: 20px;
@@ -255,6 +265,12 @@ body{
   border-radius : 10px;
   padding : 10px;
   box-shadow: 2px 2px 10px rgba(0,0,0, 0.8);  
+  
+  .message-button{
+    position: absolute;
+    top:10px;
+    right:10px;    
+  }
   
   .detail-user-image{
     display: inline-block;
@@ -278,7 +294,7 @@ body{
   }
   
   .detail-introduce{
-    margin: 30px 20px;
+    margin: 60px 30px 50px 0px;
     font-size: 20px;
     font-style: italic;
   }
@@ -310,5 +326,10 @@ body{
   
   .comment-item{
     width:100%;
-  }
+  }  
+}
+
+.modal-textarea{
+   resize: none;
+   min-height: 100px;
 }

@@ -80,15 +80,17 @@ $(function(){
       $(this).attr('checked', false);
     };
     if($(this).is(':checked')){
-      var $category = $(this).val(); // 선택된 카테고리
+      var $category = $(this).val(); // 선택된 카테고리      
       $("#user_category").val(function(i, oldVal){
         if(!oldVal){
           var categoryArr = new Array();
           categoryArr.push($category)
+          alert(categoryArr);
           return categoryArr
         }else{
           var categoryArr = oldVal.split(',');        
           categoryArr.push($category)
+          alert(categoryArr);
           return categoryArr
         }
       });
@@ -99,6 +101,7 @@ $(function(){
         categoryArr = $.grep(categoryArr, function( val ) {          
           return val !== $category;
         });
+        alert(categoryArr);
         return categoryArr
       });
     }

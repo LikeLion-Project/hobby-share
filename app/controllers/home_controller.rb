@@ -40,7 +40,7 @@ class HomeController < ApplicationController
                           receiver_id: params[:receiver_id],
                           content: params[:content])
     comment.save    
-    render :json => {:comment_date => comment.created_at,
+    render :json => {:comment_date => comment.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M"),
                      :comment_content => comment.content.gsub(/\r\n/, '<br/>').html_safe}
   end
 end
