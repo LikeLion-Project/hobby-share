@@ -36,16 +36,55 @@
           </span>
         </div>
       </li>
-      <li class="list-group-item">
-        <div class="comment-user">user</div>
-        <div class="comment-date">date</div>
-        <div class="comment-content">
-          <span>"</span>
-          content
-          <span>"</span>
-        </div>
-      </li>
+      <div class="masonry">      
+        <% @comments.each do |comment| %> 
+          <li class="list-group-item comment-item masonry-item">
+            <div class="comment-user"><%=comment.user.name%></div>
+            <div class="comment-date"><%=comment.created_at%></div>
+            <div class="comment-content">
+              <span>"</span>
+              <%=comment.content%>
+              <span>"</span>
+            </div>
+          </li>
+        <%end%>      
+      </div>
     </ul>
   
   </div><!-- container -->
 </div>
+
+<script>
+$(function(){
+  
+  //masonry 추가
+  var $grid = $('.masonry').masonry({
+      itemSelector: '.masonry-item',
+  });  
+        
+  $("#reply-button").click(function(){
+    $.ajax({
+      method: "POST",
+      url: "/write_reply",
+      data: { receiver_id: <%=@user.id %>,
+              content: $(".reply-content").val()},
+      success: function(data){
+        var item = $(
+          "<li class='list-group-item comment-item masonry-item'>" +
+            "<div class='comment-user'>" + "<%=current_user.name%>" + "</div>" + 
+            "<div class='comment-date'>"+ data.comment_date +"</div>" +
+            "<div class='comment-content'>" +
+              "<span> &quot; </span>" +
+              data.comment_content +
+              "<span> &quot; </span>" +
+            "</div>" +
+          "</li>"
+          );
+        $grid.prepend(item)
+             .masonry('prepended', item);
+      }
+    });    
+  });  
+});
+
+</script>

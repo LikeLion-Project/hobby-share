@@ -18,10 +18,11 @@ class HomeController < ApplicationController
   end
 
   def send_message                
-    post = Post.create(user_id: current_user.id,
+    post = Post.new(user_id: current_user.id,
                       receiver_id: params[:receiver_id],
                       title: params[:post_title],
                       content: params[:post_content])
+    post.save
     render :json => {
                     :receiver_email => User.find(params[:receiver_id]).email,
                     :p => post
@@ -32,5 +33,14 @@ class HomeController < ApplicationController
     #                   content: params[:content])
                       
     # redirect_to "/appeal", :flash => { :success => "메시지가 전송되었습니다." }
+  end
+  
+  def write_reply
+    comment = Comment.new(user_id: current_user.id,
+                          receiver_id: params[:receiver_id],
+                          content: params[:content])
+    comment.save    
+    render :json => {:comment_date => comment.created_at,
+                     :comment_content => comment.content.gsub(/\r\n/, '<br/>').html_safe}
   end
 end
