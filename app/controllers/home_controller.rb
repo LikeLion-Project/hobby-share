@@ -14,6 +14,7 @@ class HomeController < ApplicationController
   
   def detail_page
     @user = User.find(params[:id])
+    @comments = Comment.where(receiver_id: @user.id).order("id DESC")
   end
 
   def send_message                
