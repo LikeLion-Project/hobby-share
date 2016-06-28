@@ -20,9 +20,9 @@
     <% @users.each do |user| %>
       <div class="col-md-3 col-sm-4 col-xs-6 masonry-item wow tada">
         <%if user.gender == "male"%>
-          <div class="card male_color">
+          <div class="hvr-rotate card male_color">
         <%else%>
-          <div class="card female_color">
+          <div class="hvr-rotate card female_color">
         <%end%>
           <a href="/home/detail_page/<%=user.id%>">          
             <%= image_tag(user.pic+'.jpg', class: "card-image") %>
@@ -35,10 +35,12 @@
                   <%= user.major %>
                 </div>
               </div>
-              <div class="card-introduce">
-                <span class="quotes">"</span>
-                <%= user.introduce.gsub(/\r\n/, '<br/>').html_safe %>
-                <span class="quotes">"</span>
+              <div class="card-introduce-container">
+                  <div class="card-introduce">
+                    <span class="quotes">"</span>
+                    <%= user.introduce.gsub(/\r\n/, '<br/>').html_safe %>
+                    <span class="quotes">"</span>
+                  </div>
               </div>
               <div class="card-category">
                 <% user.category.split(',').each do |category| %>

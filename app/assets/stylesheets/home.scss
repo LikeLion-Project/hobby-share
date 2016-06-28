@@ -31,7 +31,8 @@ body{
     text-decoration: none;
   }
   a:hover{
-    color:rgba(66,66,66,1);   
+    // opacity: 0.5;
+    // color:rgba(66,66,66,1);   
   }
   a:focus{
     outline: none;
@@ -42,7 +43,7 @@ body{
   background-color: white;
   border-radius : 10px;
   padding : 5px;
-   box-shadow: 2px 2px 10px rgba(0,0,0, 0.8);
+  box-shadow: 2px 2px 10px rgba(0,0,0, 0.8) !important;
   // box-shadow: inset 0 0 0 1px rgba(0,0,0, 0.8);
 }
 
@@ -55,60 +56,70 @@ body{
 }
 
 .card-content{
-  position: relative;
   width: 100%;
   height : 40%;
+  position:relative;
   // background-color: green;
   
   .card-user{
-    padding: 5px 5px 0px 5px;
+    padding: 0em 0.2em;
     height: 20%;
     .card-name{
-      width:60%;
+      width:55%;
       overflow: hidden;
       text-overflow: ellipsis;
       float: left;
       font-weight: bold;
-      font-size:18px;
+      font-size: 20px;
       display: -webkit-box;
       -webkit-line-clamp: 1; /* 라인수 */
       -webkit-box-orient: vertical;
+      line-height: 1em;
+      height: 1em;
       word-wrap:break-word;
     }
     .card-major{
-      width:40%;
+      width:45%;
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: right;
       float: right;
       font-size:14px;
+      margin-top: 0.2em;
       display: -webkit-box;
       -webkit-line-clamp: 1; /* 라인수 */
       -webkit-box-orient: vertical;
+      line-height: 1em;
+      height: 1em;
       word-wrap:break-word;
     }
   }
-  .card-introduce{
-    font-style: italic;
-    clear: both;
-    font-size:14px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* 라인수 */
-    -webkit-box-orient: vertical;
-    word-wrap:break-word; 
-    line-height: 1.2em;
-    height: 3.6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
-    padding: 5px 10px 5px 10px;
-    .front-quotes{
-      font-size: 1.2rem;
+  .card-introduce-container{
+    background: rgba(0,0,0, 0.5);
+    border-radius: 10px;
+    padding: 4px;
+    margin: 0.1em 0.4em;
+    .card-introduce{      
+      font-style: italic;
+      clear: both;
+      font-size: 16px;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* 라인수 */
+      -webkit-box-orient: vertical;
+      word-wrap:break-word; 
+      line-height: 1em;
+      height: 3em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */      
+      .front-quotes{
+        font-size: 1em;
+      }
     }
   }
   .card-category{
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 14px;
     text-align:center;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -116,9 +127,9 @@ body{
     -webkit-line-clamp: 2; /* 라인수 */
     -webkit-box-orient: vertical;
     word-wrap:break-word; 
-    // line-height: 1.2em;
-    // height: 2.4em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
-    margin-top:10px;
+    line-height: 1em;
+    height: 2em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+    margin-top: 0.3em;
   }
 }
 

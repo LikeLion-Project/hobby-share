@@ -85,12 +85,10 @@ $(function(){
         if(!oldVal){
           var categoryArr = new Array();
           categoryArr.push($category)
-          alert(categoryArr);
           return categoryArr
         }else{
           var categoryArr = oldVal.split(',');        
           categoryArr.push($category)
-          alert(categoryArr);
           return categoryArr
         }
       });
@@ -101,7 +99,6 @@ $(function(){
         categoryArr = $.grep(categoryArr, function( val ) {          
           return val !== $category;
         });
-        alert(categoryArr);
         return categoryArr
       });
     }
