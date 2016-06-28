@@ -18,7 +18,7 @@
    <%# end %>
   <div class="masonry row">
     <% @users.each do |user| %>
-      <div class="col-md-3 col-sm-4 col-xs-6 masonry-item wow tada">
+      <div class="col-md-3 col-sm-4 col-xs-6 masonry-item animated flipInY">
         <%if user.gender == "male"%>
           <div class="hvr-rotate card male_color">
         <%else%>

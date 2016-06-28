@@ -17,10 +17,12 @@
                   <%= @user.major %>
                 </div>
               </div>
-              <div class="card-introduce">
-                <span class="quotes">"</span>
-                <%= @user.introduce.gsub(/\r\n/, '<br/>').html_safe %>
-                <span class="quotes">"</span>
+              <div class="card-introduce-container">
+                <div class="card-introduce">
+                  <span class="quotes">"</span>
+                  <%= @user.introduce.gsub(/\r\n/, '<br/>').html_safe %>
+                  <span class="quotes">"</span>
+                </div>
               </div>
               <div class="card-category">
                 <% @user.category.split(',').each do |category| %>
