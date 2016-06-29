@@ -6,5 +6,6 @@ class AddNameToUsers < ActiveRecord::Migration
     add_column :users, :major, :string
     add_column :users, :pic, :string
     add_column :users, :introduce, :text
+    add_column :users, :like_count, :integer
   end
 end
