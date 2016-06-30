@@ -24,7 +24,9 @@
     <a href="#" class="custom-button message-button" id="card_box" data-toggle="modal" data-target="#exampleModal" data-receiver_id="<%=@user.id %>">
       메세지 보내기
     </a>
-  </div><!-- container -->
+    <button class="custom-button like-button"><i class="fa fa-heart" aria-hidden="true"></i> 30</button>
+  </div>  
+  
   <%if @user.gender == "male"%>
   <div class="comment-container male_color">
   <%else%>
@@ -54,8 +56,8 @@
       </div>
     </ul>
   
-  </div><!-- container -->
-</div>
+  </div>
+</div><!-- container -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
