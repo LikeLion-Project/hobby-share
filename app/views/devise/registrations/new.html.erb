@@ -21,7 +21,8 @@
     </div></br>  
     <div class="form_group">
      <!--<label for="user_pic">자신을 표현할 수 있는 이미지</label><br>-->
-     <%= f.hidden_field :pic, value: (1..12).to_a.sample %>
+     <%= f.file_field :image_url, class: "form-control"%>
+     <%#= f.hidden_field :image_url, value: (1..12).to_a.sample %>
      <!--<input type="hidden" name="user[pic]" id="user_pic" value="<%#=(1..12).to_a.sample%>">-->
     </div>
   
@@ -37,7 +38,7 @@
         <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="게임">게임</label></div>
         <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="도서">도서</label></div>
         <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="자동차">자동차</label></div>
-        <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="운동">운동</label></div>
+    <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="운동">운동</label></div>
         <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="아이돌">아이돌</label></div>
         <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="여행">여행</label></div>
         <div class="col-md-2"><label class="checkbox-inline sign_in_up_attr"><input type="checkbox" value="사진">사진</label></div>
@@ -72,7 +73,7 @@
 </div>
 
 <script>
-$(function(){
+$(function(){  
   // 카테고리 체크 제어
   $("#category-container input").click(function(){
     if($("#category-container input:checked").length > 5){

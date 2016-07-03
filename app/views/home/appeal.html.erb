@@ -25,7 +25,8 @@
           <div class="hvr-rotate card female_color">
         <%end%>
           <a href="/home/detail_page/<%=user.id%>">          
-            <%= image_tag(user.pic+'.jpg', class: "card-image") %>
+            <%#= image_tag(user.image_url+'.jpg', class: "card-image") %>
+            <img class="card-image" src="<%=user.image_url.url%>">
             <div class="card-content">
               <div class="card-user">
                 <div class="card-name">

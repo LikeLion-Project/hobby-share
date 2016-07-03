@@ -7,7 +7,8 @@
         <%else%>
           <div class="my_card female_color">
         <%end%>
-            <%= image_tag(@user.pic+'.jpg', class: "card-image") %>
+            <%#= image_tag(@user.image_url+'.jpg', class: "card-image") %>
+            <img class="card-image" src="<%=@user.image_url.url%>">
             <div class="card-content">
               <div class="card-user">
                 <div class="card-name">

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160628175644) do
     t.string   "gender"
     t.string   "category"
     t.string   "major"
-    t.string   "pic"
+    t.string   "image_url",              default: ""
     t.text     "introduce"
     t.integer  "like_count",             default: 0
   end

@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   has_many :receivers, :through => :likes,
                        class_name: "User",
                        foreign_key: "user_id"
+                       
+   mount_uploader :image_url, HobbySharedUploader
 end
