@@ -1,0 +1,28 @@
+.like-button{
+    color: #dd111f;
+    position: absolute;
+    bottom:15px;
+    right:10px;    
+}
+.like-button:hover, .like-button:visited, .like-button:link, .like-button:active{
+    color: #dd111f;
+}
+  
+.like-button-selected{
+    background: #dd111f;
+    color: white;   
+     -webkit-box-shadow: 0px 6px 0px #ba0009;
+    -moz-box-shadow: 0px 6px 0px #ba0009;
+    box-shadow: 0px 6px 0px #ba0009;    
+}
+  
+.like-button-selected:hover, .like-button-selected:visited, .like-button-selected:link{
+    color:white;
+}
+
+.like-button-selected:active{ 
+    color:white;
+    -webkit-box-shadow: 0px 3px 0px #ba0009;
+    -moz-box-shadow: 0px 3px 0px #ba0009;
+    box-shadow: 0px 3px 0px #ba0009;    
+}

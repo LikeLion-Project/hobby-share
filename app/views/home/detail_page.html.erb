@@ -24,7 +24,13 @@
     <a href="#" class="custom-button message-button" id="card_box" data-toggle="modal" data-target="#exampleModal" data-receiver_id="<%=@user.id %>">
       메세지 보내기
     </a>
-    <button class="custom-button like-button"><i class="fa fa-heart" aria-hidden="true"></i> 30</button>
+    <!--좋아요 체크-->
+    <% if @like_flag %>
+      <button id="like-user" class="custom-button like-button like-button-selected"><i class="fa fa-heart-o" aria-hidden="true"></i> <%=@user.like_count%></button>  
+    <% else %>
+      <button id="like-user" class="custom-button like-button"><i class="fa fa-heart-o" aria-hidden="true"></i> <%=@user.like_count%></button>  
+    <% end %>
+    
   </div>  
   
   <%if @user.gender == "male"%>
@@ -126,33 +132,50 @@ $(function(){
   $('#modal_receiver_id').val(receiver_id)
   // $('#modal_title').val(user_id)
   // $('#modal_content').val(target_user_id)
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-});
-    
-// $(function(){
-//   $(".alert").delay(2000).fadeOut('slow');
-// });
+  });
+      
+  // $(function(){
+  //   $(".alert").delay(2000).fadeOut('slow');
+  // });
 
-$("#send_message_button").click(function(){
-        $.ajax({
-            method: "POST",
-            url: "/send_message",
-            data: { receiver_id: $("#modal_receiver_id").val(),
-                    post_title: $("#modal_title").val(),
-                    post_content: $("#modal_content").val()},                
-            success: function(data){
-                    $('#modal_title').val("")
-                    $('#modal_content').val("")
-                    Push.create('메시지 전송 성공!', {
-                      body:  '메시지가 전송 되었습니다.',
-                      // icon :  'images/m_logo_keen.jpg',
-                      timeout : 3000
-                    });  
-                    $('#exampleModal').modal("hide");
-            }            
-        });
-});
+  $("#send_message_button").click(function(){
+          $.ajax({
+              method: "POST",
+              url: "/send_message",
+              data: { receiver_id: $("#modal_receiver_id").val(),
+                      post_title: $("#modal_title").val(),
+                      post_content: $("#modal_content").val()},                
+              success: function(data){
+                      $('#modal_title').val("")
+                      $('#modal_content').val("")
+                      Push.create('메시지 전송 성공!', {
+                        body:  '메시지가 전송 되었습니다.',
+                        // icon :  'images/m_logo_keen.jpg',
+                        timeout : 3000
+                      });  
+                      $('#exampleModal').modal("hide");
+              }            
+          });
+  });
+  
+  $("#like-user").click(function(){
+    $.ajax({
+      method: "POST",
+      url: "/like_user",
+      data: { receiver_id: <%= @user.id %> },
+      success: function(data){
+        if(data.like_flag){
+          $("#like-user").addClass( "like-button-selected" );
+          $("#like-user").html("<i class='fa fa-heart' aria-hidden='true'></i> " + data.like_count);
+        }
+        else{
+          $("#like-user").removeClass( "like-button-selected" );
+          $("#like-user").html("<i class='fa fa-heart' aria-hidden='true'></i> " + data.like_count);
+        }
+      }
+    });    
+  });
+  
 });
 
 </script>

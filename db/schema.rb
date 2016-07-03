@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20160628175644) do
     t.string   "major"
     t.string   "pic"
     t.text     "introduce"
-    t.integer  "like_count"
+    t.integer  "like_count",             default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
