@@ -3,29 +3,35 @@
 
   <!--<form action="/users" method="post" enctype="multipart/form-data">-->
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="form_group">
-      <%= f.label :email, "이메일", class: "sign_in_up_attr" %>
-      <%= f.email_field :email, class: "form-control", placeholder: 'sample@kookmin.ac.kr', autofocus: true, required: true %>
-    </div></br> 
-    <div class="form_group">
-      <%= f.label :name, "닉네임", class: "sign_in_up_attr" %>
-      <%= f.text_field :name, class: "form-control", placeholder: '닉네임을 입력해주세요.', autocomplete: "off", required: true %>
-    </div></br> 
-    <div class="form_group">
-      <%= f.label :password, "비밀번호 (8자이상)", class: "sign_in_up_attr" %>
-      <%= f.password_field :password, class: "form-control", placeholder: '********', autocomplete: "off", required: true %>
-    </div></br>
-    <div class="form_group">
-      <%= f.label :password_confirmation, "비밀번호 확인", class: "sign_in_up_attr"%>
-      <%= f.password_field :password_confirmation,  class: "form-control", placeholder: '********', autocomplete: "off", required: true %>
-    </div></br>  
-    <div class="form_group">
-     <!--<label for="user_pic">자신을 표현할 수 있는 이미지</label><br>-->
-     <%= f.file_field :image_url, class: "form-control"%>
-     <%#= f.hidden_field :image_url, value: (1..12).to_a.sample %>
-     <!--<input type="hidden" name="user[pic]" id="user_pic" value="<%#=(1..12).to_a.sample%>">-->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form_group">
+         <!--<label for="user_pic">자신을 표현할 수 있는 이미지</label><br>-->
+         <%= f.label :image_url, "이미지 첨부", class: "sign_in_up_attr" %>
+         <%= f.file_field :image_url, class: "form-control"%>
+         <%#= f.hidden_field :image_url, value: (1..12).to_a.sample %>
+         <!--<input type="hidden" name="user[pic]" id="user_pic" value="<%#=(1..12).to_a.sample%>">-->
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="form_group">
+          <%= f.label :email, "이메일", class: "sign_in_up_attr" %>
+          <%= f.email_field :email, class: "form-control", placeholder: 'sample@kookmin.ac.kr', autofocus: true, required: true %>
+        </div></br> 
+        <div class="form_group">
+          <%= f.label :name, "닉네임", class: "sign_in_up_attr" %>
+          <%= f.text_field :name, class: "form-control", placeholder: '닉네임을 입력해주세요.', autocomplete: "off", required: true %>
+        </div></br> 
+        <div class="form_group">
+          <%= f.label :password, "비밀번호 (8자이상)", class: "sign_in_up_attr" %>
+          <%= f.password_field :password, class: "form-control", placeholder: '********', autocomplete: "off", required: true %>
+        </div></br>
+        <div class="form_group">
+          <%= f.label :password_confirmation, "비밀번호 확인", class: "sign_in_up_attr"%>
+          <%= f.password_field :password_confirmation,  class: "form-control", placeholder: '********', autocomplete: "off", required: true %>
+        </div></br>  
+      </div>
     </div>
-  
     <div class="form_group">
       <%= f.label :category, "관심 카테고리 (최대 5개 선택 가능)", class: "sign_in_up_attr"%><br>
       <%= f.hidden_field :category %>    
@@ -73,7 +79,11 @@
 </div>
 
 <script>
-$(function(){  
+$(function(){
+
+  var categoryArr = new Array();
+  $("#user_category").val("");
+  
   // 카테고리 체크 제어
   $("#category-container input").click(function(){
     if($("#category-container input:checked").length > 5){
@@ -81,17 +91,17 @@ $(function(){
       $(this).attr('checked', false);
     };
     if($(this).is(':checked')){
-      var $category = $(this).val(); // 선택된 카테고리      
+      var $category = $(this).val(); // 선택된 카테고리     
       $("#user_category").val(function(i, oldVal){
-        if(!oldVal){
-          var categoryArr = new Array();
-          categoryArr.push($category)
-          return categoryArr
-        }else{
-          var categoryArr = oldVal.split(',');        
-          categoryArr.push($category)
-          return categoryArr
-        }
+        // if(!oldVal){
+          // var categoryArr = new Array();
+          categoryArr.push($category);          
+        //   return categoryArr
+        // }else{
+        //   var categoryArr = oldVal.split(',');        
+        //   categoryArr.push($category)
+          return categoryArr;
+        // }
       });
     }else{
       var $category = $(this).val(); // 선택 해제된 카테고리
